@@ -1,0 +1,14 @@
+for
+	"for" is a type of loop which is created by specifying a place to start, a place to stop, and a way to get from the beginning of the loop to the end. It loops through the same code over and over until it reaches it's end limit defined when creating the loop.
+
+&& || !
+	&& || and ! all work with Booleans. && means "and," || means "or," and ! means "not". This && That -- Both This and That have to be true for the statement to be true. This || That -- Either This or That has to be true for the statement to be true. !This -- This has to be False for the statement to be true. You can also use ! to flip Booleans. If This was false !This would become true. if This was true !This would become false.
+
+Arrays
+	Arrays are a group of items in memory.
+
+Git
+	Git is a utility to pull and push projects to a repository.
+
+GitHub
+	GitHub is a major public repository that people use with git but it's not necessary to use GitHub, you can host your own repositories as well.
