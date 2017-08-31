@@ -57,7 +57,8 @@ function fizzBuzz(num) {
   return num;
 }
 
-function isPrime(num) {
+var primes = [];
+function isPrime(num){
   // return true if num is prime.
   // otherwise return false
   // hint: a prime number is only evenly divisible by itself and 1
@@ -65,15 +66,32 @@ function isPrime(num) {
   // note: 0 and 1 are NOT considered prime numbers
 
   //return false if number less than 2 or not whole.
-  if(num < 2 || num % 1 !== 0)
-    return false;
 
-  var sqrt = Math.round(Math.sqrt(num));
-
-  for(var i=2;i<sqrt;i++)
-    if(num % i === 0)
-      return false;
-  return true;
+  if(num>1 && num%1===0){
+    if(num>2 && num%2===0) return false; //first
+    var sqrt = Math.ceil(Math.sqrt(num));
+    if(num%sqrt===0 && num!==sqrt) return false; //second
+    if(primes.indexOf(num) > -1) return true;
+    //this is where most of the magic happens
+    for(var i=0;i<primes.length;i++){
+      if(num%primes[i]===0) return false; //third
+      if(primes[i]>sqrt){
+        primes.push(num);
+        return true;
+      }
+    }
+    //backfills prime numbers if you start
+    //higher than 2
+    if(num>5){
+      for(var j=2;j<num;j++)
+        isPrime(j);
+      return isPrime(num);
+    }
+    //this catches 2, 3, and 5
+    primes.push(num);
+    return true;
+  }
+  return false;
 }
 
 function returnFirst(arr) {
